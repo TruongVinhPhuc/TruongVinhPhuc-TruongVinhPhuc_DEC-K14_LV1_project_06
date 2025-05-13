@@ -1,0 +1,686 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Project 6</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(50, 48, 44, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-default_background {
+	color: rgba(50, 48, 44, 1);
+}
+.highlight-gray_background {
+	background: rgba(248, 248, 247, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(248, 243, 252, 1);
+}
+.highlight-pink_background {
+	background: rgba(252, 241, 246, 1);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(248, 248, 247, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(248, 243, 252, 1);
+}
+.block-color-pink_background {
+	background: rgba(252, 241, 246, 1);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-uiBlue { background-color: undefined; }
+.select-value-color-pink { background-color: rgba(225, 136, 179, 0.27); }
+.select-value-color-purple { background-color: rgba(168, 129, 197, 0.27); }
+.select-value-color-green { background-color: rgba(123, 183, 129, 0.27); }
+.select-value-color-gray { background-color: rgba(84, 72, 49, 0.15); }
+.select-value-color-transparentGray { background-color: undefined; }
+.select-value-color-translucentGray { background-color: undefined; }
+.select-value-color-orange { background-color: rgba(224, 124, 57, 0.27); }
+.select-value-color-brown { background-color: rgba(210, 162, 141, 0.35); }
+.select-value-color-red { background-color: rgba(244, 171, 159, 0.4); }
+.select-value-color-yellow { background-color: rgba(236, 191, 66, 0.39); }
+.select-value-color-blue { background-color: rgba(93, 165, 206, 0.27); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="1e538763-7c0c-80f3-8e71-d8c3fc59ca2f" class="page sans"><header><h1 class="page-title">Project 6</h1><p class="page-description"></p></header><div class="page-body"><ul id="1ee38763-7c0c-801e-8c2f-c8950a4ede56" class="toggle"><li><details open=""><summary>Lên ý tưởng:</summary><ul id="1ee38763-7c0c-806a-b750-ddf936559abf" class="bulleted-list"><li style="list-style-type:disc">Bật ngay trong đầu là ý tưởng đã học từ môn Hệ thống thông tin phục vụ trí tuệ kinh doanh: kiến trúc hệ thống Data Warehouse NDS + DDS.</li></ul><ul id="1f238763-7c0c-80a9-8b42-fbaffb8ac4ec" class="bulleted-list"><li style="list-style-type:disc">Bước đầu tiên là phải thiết kế schema cho NDS:<figure id="1f238763-7c0c-8008-b593-d6f384155046" class="image"><a href="Diagram-Raw_Layer.drawio_(1).png"><img style="width:653.9874877929688px" src="Diagram-Raw_Layer.drawio_(1).png"/></a></figure></li></ul><ul id="1f238763-7c0c-80cb-8de2-f892a0f6d8c4" class="bulleted-list"><li style="list-style-type:disc">Về cơ bản, cách thiết kế schema cho dataset Glamira này sẽ dựa trên trường <strong>collection </strong>(tức là hành động mà người dùng đang thực hiện) để phân chia ra các bảng master và các bảng transaction. Bảng transaction là các bảng như Event, Event_Cart, Event_Filter, Event_Option và Event_Recommend; bảng master là các bảng chứa những người hoặc đối tượng tham gia vào sự kiện kinh doanh (các bảng này sẽ tương ứng với các bảng dimension trong DDS).</li></ul><ul id="1f238763-7c0c-80f2-b164-d40f9b49c6fa" class="bulleted-list"><li style="list-style-type:disc">Tất nhiên, vì đây là dataset schemaless nên sẽ có những field null tùy theo collection được track.</li></ul><ul id="1f238763-7c0c-8051-b1a6-d184fb418971" class="bulleted-list"><li style="list-style-type:disc">Làm theo hướng này thì có nghĩa là ta đang đi theo hướng incremental ETL (Extract dữ liệu từ dataset để đưa vào staging database, Transform và Load dữ liệu vào NDS theo CET - Current Extract Time và LET - Last Extract Time), tương tự với ETL cho DDS. Tuy nhiên, vì đây là dữ liệu track hành vi người dùng và đã khảo sát qua dữ liệu nên sẽ không có cùng 1 thực thể (ở các bảng master) mà có nhiều tên hay column khác nhau (có thể hiểu là SCD trong DDS).</li></ul><ul id="1f238763-7c0c-80f3-82c3-ca0114d01dc9" class="bulleted-list"><li style="list-style-type:disc">Và vì nó chỉ đều tới cùng 1 nguồn (dataset Glamira) nên không cần track dữ liệu tới từ nguồn nào. Sẽ có 1 số table như Store thì store_name sẽ có dạng “Store” + store_id.</li></ul></details></li></ul><ul id="1f138763-7c0c-80a3-a954-df48cce2cf01" class="toggle"><li><details open=""><summary>Triển khai:</summary><ul id="1f238763-7c0c-8099-8844-e6fa06f92c15" class="bulleted-list"><li style="list-style-type:disc">Vì phạm vi của project này sẽ chú trọng vào BigQuery nên ta sẽ sử dụng BigQuery làm NDS.</li></ul><ul id="1f238763-7c0c-80cb-a812-fd301521cf9f" class="bulleted-list"><li style="list-style-type:disc">Viết code xuất dữ liệu Glamira theo từng batch (1 batch 1 triệu documents) lên GCS - có thể coi là đưa vào staging phase.</li></ul><ul id="1f238763-7c0c-808c-b26e-f4b300540e92" class="bulleted-list"><li style="list-style-type:disc">Viết code Cloud Functions trigger để transform dữ liệu từ GCS.</li></ul><ul id="1f238763-7c0c-8049-9b65-d987b242738e" class="bulleted-list"><li style="list-style-type:disc">Load dữ liệu vào BigQuery theo dạng streaming.</li></ul></details></li></ul><ul id="1f238763-7c0c-80bc-afdd-de4d2f1ebf3b" class="toggle"><li><details open=""><summary>Vấn đề:</summary><ul id="1f238763-7c0c-801d-bc3c-e8c6ae6f66b4" class="bulleted-list"><li style="list-style-type:disc">Trước hết thì BigQuery không có constraint (tức là không có PK, FK cũng như các constraint để ràng buộc dữ liệu để không cho dữ liệu trùng vì NDS sẽ ở dạng chuẩn 3 hoặc hơn).</li></ul><ul id="1f238763-7c0c-8024-b133-e3611db5f16d" class="bulleted-list"><li style="list-style-type:disc">Cho nên, để check có duplicate hay không thì phải viết query để kiểm tra trùng lặp trong BigQuery. Điều này chắc chắn sẽ rất tốn kém cả về mặt performance lẫn cost do mỗi record sẽ phải check 1 lần ⇒ không hiệu quả.</li></ul><ul id="1f238763-7c0c-80c6-be02-e5a2ba9ba502" class="bulleted-list"><li style="list-style-type:disc">Nếu sử dụng DML như bình thường (Insert, Delete, Update,…) thì cũng không được do BigQuery có giới hạn số lần sử dụng DML cho 1 bảng ⇒ không thể insert toàn bộ data của 1 batch.</li></ul><ul id="1f238763-7c0c-80c8-8376-c4abca25ddf7" class="bulleted-list"><li style="list-style-type:disc">Cách giải quyết vấn đề DML thì sử dụng hàm insert_rows_json(), hàm này sẽ có chức năng stream data vào table. Tuy nhiên, hàm này chỉ đưa data vào streaming buffer chứ chưa đảm bảo data sẽ available trong 2-3 phút tới ⇒ Có thể gây trùng lặp do có thể có 1 record đưa vào streaming buffer và record tiếp theo giống với record đầu nhưng không check được duplicate. Vấn đề này có lẽ chỉ xuất hiện khi xử lí theo batch mà các batch cách nhau 2-3 phút do tính chất của project.</li></ul><ul id="1f238763-7c0c-8012-85e2-c6202fb4d2a4" class="bulleted-list"><li style="list-style-type:disc">Dù vậy, vẫn mất khá lâu (~3600 giây chỉ để transform 10000 dòng).</li></ul></details></li></ul><ul id="1f238763-7c0c-8047-b1a4-f396216c1c79" class="toggle"><li><details open=""><summary>Hướng giải quyết</summary><ul id="1f238763-7c0c-802c-a4f2-c6f784a52839" class="toggle"><li><details open=""><summary>Cách 1: Transform ngay tại VM chứ không transform ở Cloud Function trigger:</summary><ul id="1f238763-7c0c-8011-877a-f0c1276837ce" class="bulleted-list"><li style="list-style-type:disc">Thay vì stream dữ liệu thì ta sẽ tạo ra các file jsonl tương ứng cho các bảng ở schema, ta chỉ việc sử dụng Cloud Function trigger load vào. </li></ul><ul id="1f238763-7c0c-80e1-bb76-ebe96bb0b1e8" class="bulleted-list"><li style="list-style-type:disc">Thay vì vừa insert vừa query để check duplicate thì ta sẽ tạo ra cache nhằm kiểm tra duplicate cục bộ. Nghĩa là, nếu có 1 record mới được xử lí thì sẽ kiểm tra cache ứng với collection của record đó. Nếu cache đó không có thì mới tìm ở trong BigQuery. Nếu là record mới thì sẽ insert vào cache và file jsonl tương ứng.</li></ul><ul id="1f238763-7c0c-807f-a398-f63af12a60e4" class="bulleted-list"><li style="list-style-type:disc">Sau đó sẽ export file jsonl tương ứng cho các bảng như schema.</li></ul><ul id="1f238763-7c0c-801a-84fa-eabbd800e402" class="bulleted-list"><li style="list-style-type:disc">Viết code trigger load vào bảng theo tên file.</li></ul><ul id="1f238763-7c0c-80f9-bb36-f18d2000e3d0" class="bulleted-list"><li style="list-style-type:disc">Có hiệu quả hơn cách ban đầu chỉ với 2000 giây cho 10000 rows.</li></ul></details></li></ul><ul id="1f238763-7c0c-8083-a480-f0a0632304e7" class="toggle"><li><details open=""><summary>Cách 2: Sử dụng Cloud SQL (cụ thể là PostgreSQL) để làm NDS (chưa implement):</summary><ul id="1f238763-7c0c-8032-a2a2-d96aa3ee69f9" class="bulleted-list"><li style="list-style-type:disc">Việc sử dụng 1 RDBMS để làm NDS là hợp lí hơn so với 1 datalakehouse như BigQuery (hỗ trợ columnar storage để tăng perfomance cho việc phân tích dữ liệu).</li></ul><ul id="1f238763-7c0c-80d4-baad-db7722ad7cbd" class="bulleted-list"><li style="list-style-type:disc">Không lo duplicate dữ liệu do đã có các constraint.</li></ul><ul id="1f238763-7c0c-800b-8278-fd927d808303" class="bulleted-list"><li style="list-style-type:disc">Có thể implement bằng cách tạo staging phase trong PostgreSQL và viết các procedure cũng như các trigger hay function cần thiết để transform cho NDS.</li></ul></details></li></ul><ul id="1f238763-7c0c-804c-89a2-c2de9f688bc5" class="toggle"><li><details open=""><summary>Cách 3: ELT thay vì ETL:</summary><ul id="1f238763-7c0c-80c1-b987-f2dcb1550cf9" class="bulleted-list"><li style="list-style-type:disc">Trước hết thì ta sẽ export các rows theo batch lên GCS.</li></ul><ul id="1f238763-7c0c-8081-9fe5-dca23082f153" class="bulleted-list"><li style="list-style-type:disc">Sử dụng Cloud Function Trigger để load vào BigQuery.</li></ul><ul id="1f238763-7c0c-806d-a187-c0a5ea25618c" class="bulleted-list"><li style="list-style-type:disc">Sau đó, sử dụng DBT để transform dữ liệu sang NDS.</li></ul><ul id="1f238763-7c0c-80f9-ba57-ce953ef2b702" class="bulleted-list"><li style="list-style-type:disc">Quá trình export 1 triệu record chỉ mất 70s và transform toàn bộ dữ liệu (43 triệu records) bằng DBT chỉ mất 1-2 phút.</li></ul><ul id="1f238763-7c0c-8061-85be-e8c1fe920c1a" class="bulleted-list"><li style="list-style-type:disc">Nếu có thể thì sẽ thử Dataform của Bigquery (tương tự với DBT nhưng Dataform được tích hợp vào BigQuery).</li></ul><ul id="1f238763-7c0c-807c-ad6e-d59f1fecb89e" class="bulleted-list"><li style="list-style-type:disc">Tuy nhiên trong quá trình làm có 1 bug từ Cloud Run Function: load job trả kết quả fail hoặc timeout dù load job trong BigQuery đã thành công. Cụ thể:<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1f238763-7c0c-80ce-8326-d89bff8751fc" class="code"><code class="language-Python">load_job = bq_client.load_table_from_uri(uri, table_id, job_config=job_config)
+load_job.result()</code></pre></li></ul><ul id="1f238763-7c0c-801f-be12-dfc0468ae5d1" class="bulleted-list"><li style="list-style-type:disc">load_job.result() sẽ cho job là fail hoặc bị timeout (dù có set timeout là 300) trong khi load job chỉ mất 17 giây để thực hiện load xong.</li></ul><ul id="1f238763-7c0c-802d-901b-d513f2c8389a" class="bulleted-list"><li style="list-style-type:disc">Cách fix là xóa dòng load_job.result() đi và monitor trong BigQuery nếu có job nào bị lỗi hay không.</li></ul></details></li></ul></details></li></ul><ul id="1f238763-7c0c-801b-b772-dc860c9ed7ff" class="toggle"><li><details open=""><summary>Bài học:</summary><ul id="1f238763-7c0c-800b-a813-faf16a109b39" class="bulleted-list"><li style="list-style-type:disc">Đối với các dữ liệu tracking người dùng thì sử dụng ELT. Còn các dữ liệu cần được lấy từ các nguồn khác và tích hợp lại thành 1 thì nên sử dụng ETL.</li></ul></details></li></ul><ul id="1f238763-7c0c-80b3-b178-c6e48c6bbd96" class="toggle"><li><details open=""><summary>Các nguồn đã tìm hiểu</summary><p id="1f238763-7c0c-803d-8ac7-c7aec5000408" class=""><a href="https://medium.com/@jenn_wang/event-driven-cloud-function-triggered-multiple-times-how-to-address-it-ed8dc58a14c6">https://medium.com/@jenn_wang/event-driven-cloud-function-triggered-multiple-times-how-to-address-it-ed8dc58a14c6</a></p><p id="1f238763-7c0c-806f-9f6a-c4c3bd101502" class=""><a href="https://cafedevcode.com/kien-truc-he-thong-data-warehouse-50.html">https://cafedevcode.com/kien-truc-he-thong-data-warehouse-50.html</a></p></details></li></ul><p id="1f238763-7c0c-80f6-a27f-fc28c6ec2541" class="">
+</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
